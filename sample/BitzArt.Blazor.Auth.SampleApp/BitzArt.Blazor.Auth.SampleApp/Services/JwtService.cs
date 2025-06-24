@@ -33,7 +33,8 @@ public class JwtService
         var accessToken = _tokenHandler.WriteToken(new JwtSecurityToken(
             claims:
             [
-                new Claim("myClaim", "My claim data")
+                new Claim("myClaim", "My claim data"),
+                new Claim(ClaimTypes.Role, "Administrator")
             ],
             notBefore: now,
             expires: accessTokenExpiresAt,
